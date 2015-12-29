@@ -1,0 +1,20 @@
+!!!
+%html
+  %head
+    %title Grafos
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    .container(ng-app='app')
+      %nav.navbar.navbar-default.navbar-fixed-top
+        .container
+          %a.navbar-brand Grafos
+          .collapse.navbar-collapse
+            %ul.nav.navbar-nav
+              %li
+                = link_to 'Home', root_path
+              %li
+                = link_to 'New List', new_list_path
+      .content
+        = yield

@@ -13,4 +13,17 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require lodash
+//= require angular
+//= require angular-resource
+//= require angular-animate
+//= require angular-sanitize
+//= require angular-bootstrap
+//= require bootstrap-sass/assets/javascripts/bootstrap-sprockets
+
+//= require ./app/core/core.module
+//= require ./app/core/lodash.module
+//= require_tree ./app/core/
+//= require ./app/app.module
+
 //= require_tree .
