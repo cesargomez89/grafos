@@ -1,0 +1,13 @@
+.show-list(ng-controller='ShowListController as showList' ng-init="showList.getList(#{@list.to_json})")
+  %h2 New List
+
+  %form(editable-form name='listForm' onaftersave='showList.saveList($data)')
+    %span Name
+    %span(editable-text='showList.list.name') {{showList.list.name}}
+    %span Name
+    %span(editable-text='showList.list.description') {{showList.list.description}}
+    .buttons
+      %button.btn.btn-success(ng-click="editableForm.$show()" ng-show='!editableForm.$visible') Edit
+      .span(ng-show="editableForm.$visible")
+        %button.btn.btn-success(type='submit' ng-disabled='listForm.$waiting') Save
+        %button.btn.btn-success(ng-click="listForm.$cancel()" ng-disabled='listForm.$waiting') Cancel
