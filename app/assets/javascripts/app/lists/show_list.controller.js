@@ -14,6 +14,7 @@
     vm.getList= getList;
 
     function saveList(data){
+      debugger
     }
 
     function getList(list){
