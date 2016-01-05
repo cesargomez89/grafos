@@ -39,24 +39,23 @@
       vm.arcs.push(angular.copy(vm.newArc));
     }
 
-    function saveNode(data){
+    function saveNode(data, index){
+      data.list_id = vm.list.id;
       if(data.id){
         nodeService.update(data);
       } else{
         nodeService.create(data).then(function(response){
-          var node = _.find(vm.nodes, {id: response.data.id});
-          node = response.data;
+          vm.nodes.splice(index, 1, response.data);
         });
       }
     }
 
-    function saveArc(data){
+    function saveArc(data, index){
       if(data.id){
         arcService.update(data);
       } else{
         arcService.create(data).then(function(response){
-          var arc = _.find(vm.arcs, {id: response.data.id});
-          arc = response.data;
+          vm.arcs.splice(index, 1, response.data);
         });
       }
     }
