@@ -9,13 +9,10 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bower'
 gem 'haml-rails'
+gem 'rails_12factor'
 
 group :development, :test do
   gem 'pry'
-end
-
-group :production do
-  gem 'rails_12factor'
 end
 
 group :development do
