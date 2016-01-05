@@ -5,20 +5,61 @@
   angular.module('app.lists').
     controller('ShowListController', ShowListController);
 
-  ShowListController.$inject = [];
+  ShowListController.$inject = ['nodeService', 'arcService'];
 
-  function ShowListController(){
+  function ShowListController(nodeService, arcService){
     var vm = this;
-    vm.list = {name: null, description: null};
+    vm.list  = {name: null, description: null};
+    vm.nodes = [];
+    vm.arcs  = [];
+    vm.newNode = { info: '', next_id: null };
+    vm.newArc = { weight: 1, heuristic_value: null, node_id: null, next_id: null };
+
     vm.saveList = saveList;
-    vm.getList= getList;
+    vm.getInfo  = getInfo;
+    vm.addNode  = addNode;
+    vm.addArc   = addArc;
+    vm.saveNode = saveNode;
+    vm.saveArc  = saveArc;
 
     function saveList(data){
-      debugger
     }
 
-    function getList(list){
-      vm.list = list;
+    function getInfo(list, nodes, arcs){
+      vm.list  = list;
+      vm.nodes = nodes;
+      vm.arcs  = arcs;
     }
+
+    function addNode(){
+      vm.nodes.push(angular.copy(vm.newArc));
+    }
+
+    function addArc(){
+      vm.arcs.push(angular.copy(vm.newArc));
+    }
+
+    function saveNode(data){
+      if(data.id){
+        nodeService.update(data);
+      } else{
+        nodeService.create(data).then(function(response){
+          var node = _.find(vm.nodes, {id: response.data.id});
+          node = response.data;
+        });
+      }
+    }
+
+    function saveArc(data){
+      if(data.id){
+        arcService.update(data);
+      } else{
+        arcService.create(data).then(function(response){
+          var arc = _.find(vm.arcs, {id: response.data.id});
+          arc = response.data;
+        });
+      }
+    }
+
   }
 }());

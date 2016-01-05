@@ -19,14 +19,19 @@
 //= require angular-sanitize
 //= require angular-bootstrap
 //= require angular-xeditable
+//= require angular-toastr
 //= require bootstrap-sass/assets/javascripts/bootstrap-sprockets
 
 //= require ./app/core/core.module
 //= require ./app/core/lodash.module
 //= require ./app/lists/lists.module
+//= require ./app/nodes/nodes.module
+//= require ./app/arcs/arcs.module
 //= require_tree ./app/core/
 //= require_tree ./app/lists/
+//= require_tree ./app/arcs/
 
 //= require ./app/app.module
+//= require_tree ./app/components/
 
 //= require_tree .

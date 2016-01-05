@@ -8,7 +8,8 @@
     'ngSanitize',
     'app.lodash',
     'ui.bootstrap',
-    'xeditable'
+    'xeditable',
+    'toastr'
   ]);
 }());
 

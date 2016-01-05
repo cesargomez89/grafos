@@ -1,6 +1,8 @@
 angular.module('app', [
   'app.core',
   'app.lists',
+  'app.nodes',
+  'app.arcs',
 ], configure);
 
 configure.$inject = ['$httpProvider'];
