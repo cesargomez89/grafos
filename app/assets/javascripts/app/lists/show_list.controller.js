@@ -51,6 +51,7 @@
     }
 
     function saveArc(data, index){
+      data.list_id = vm.list.id;
       if(data.id){
         arcService.update(data);
       } else{

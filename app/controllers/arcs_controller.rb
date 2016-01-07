@@ -35,6 +35,6 @@ class ArcsController < ApplicationController
   private
 
   def arc_params
-    params.require(:arc).permit(:weight, :heuristic_value, :node_id, :next_id)
+    params.require(:arc).permit(:weight, :heuristic_value, :from_id, :to_id, :next_id, :list_id)
   end
 end

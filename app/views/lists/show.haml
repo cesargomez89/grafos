@@ -47,7 +47,8 @@
         %th Id
         %th Weight
         %th Heuristic value
-        %th Node id
+        %th Node Parent Id
+        %th Node Child Id
         %th Next id
         %th Edit
       %tbody
@@ -59,7 +60,9 @@
           %td
             %span(editable-text="arc.heuristic_value" e-name="heuristic_value" e-form="arcform") {{arc.heuristic_value}}
           %td
-            %span(editable-text="arc.node_id" e-name="node_id" e-form="arcform" e-required) {{arc.node_id}}
+            %span(editable-text="arc.from_id" e-name="from_id" e-form="arcform" e-required) {{arc.from_id}}
+          %td
+            %span(editable-text="arc.to_id" e-name="to_id" e-form="arcform" e-required) {{arc.to_id}}
           %td
             %span(editable-text="arc.next_id" e-name="next_id" e-form="arcform" e-required) {{arc.next_id}}
           %td(style="white-space: nowrap")
