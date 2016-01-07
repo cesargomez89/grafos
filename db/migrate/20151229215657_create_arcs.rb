@@ -3,7 +3,9 @@ class CreateArcs < ActiveRecord::Migration
     create_table :arcs do |t|
       t.integer :weight
       t.integer :heuristic_value
-      t.references :node, index: true, foreign_key: true
+      t.integer :from_id
+      t.integer :to_id
+      t.integer :list_id
       t.integer :next_id
 
       t.timestamps null: false

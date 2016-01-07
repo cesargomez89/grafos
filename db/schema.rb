@@ -13,34 +13,36 @@
 
 ActiveRecord::Schema.define(version: 20151229215657) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "arcs", force: :cascade do |t|
-    t.integer  "weight",          limit: 4
-    t.integer  "heuristic_value", limit: 4
-    t.integer  "node_id",         limit: 4
-    t.integer  "next_id",         limit: 4
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.integer  "weight"
+    t.integer  "heuristic_value"
+    t.integer  "from_id"
+    t.integer  "to_id"
+    t.integer  "list_id"
+    t.integer  "next_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
-  add_index "arcs", ["node_id"], name: "index_arcs_on_node_id", using: :btree
-
   create_table "lists", force: :cascade do |t|
-    t.string   "name",        limit: 255
-    t.text     "description", limit: 65535
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "nodes", force: :cascade do |t|
-    t.string   "info",       limit: 255
-    t.integer  "list_id",    limit: 4
-    t.integer  "next_id",    limit: 4
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "info"
+    t.integer  "list_id"
+    t.integer  "next_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_index "nodes", ["list_id"], name: "index_nodes_on_list_id", using: :btree
 
-  add_foreign_key "arcs", "nodes"
   add_foreign_key "nodes", "lists"
 end
