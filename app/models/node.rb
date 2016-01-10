@@ -11,5 +11,9 @@ class Node < ActiveRecord::Base
     Node.where(from_id: id)
   end
 
+  def arcs
+    from_arcs + to_arcs
+  end
+
   default_scope { order('id ASC') }
 end

@@ -1,15 +1,15 @@
 module Algorithms
   class AllPathsService
     def initialize(list, start, finish)
-      @list   = list
-      @start  = @list.nodes.find(start)
-      @finish = @list.nodes.find(finish)
+      @nodes  = list.nodes
+      @start  = @nodes.find(start)
+      @finish = @nodes.find(finish)
       @paths  = []
       @complete_paths  = []
     end
 
     def process
-      @path = { @start.info => '0' }
+      @path = { @start.info => 0 }
       @paths.push(@path)
       walk_paths
       find_path_alternatives
@@ -37,7 +37,7 @@ module Algorithms
     end
 
     def find_node_by_path
-      Node.find_by(info: @path.keys.last)
+      @nodes.find_by(info: @path.keys.last)
     end
 
     def find_path_alternatives
