@@ -83,12 +83,14 @@
     }
 
     function removeNode(id, index){
+      if(!id){ return vm.nodes.splice(index, 1); }
       nodeService.remove(id).then(function(response){
         vm.nodes.splice(index, 1);
       });
     }
 
     function removeArc(id, index){
+      if(!id){ return vm.arcs.splice(index, 1); }
       arcService.remove(id).then(function(response){
         vm.arcs.splice(index, 1);
       });
