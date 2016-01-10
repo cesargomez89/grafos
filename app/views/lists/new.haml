@@ -1,6 +1,9 @@
-%h2 New List
+%h2 New Graph
 
 =form_for @list do |f|
-  =f.text_field :name
-  =f.text_area  :description
-  =f.submit
+  .form-group
+    =f.label :name
+    =f.text_field :name, class: 'form-control'
+    =f.label :description
+    =f.text_area  :description, class: 'form-control'
+  =f.submit 'Create', class: 'btn btn-primary'

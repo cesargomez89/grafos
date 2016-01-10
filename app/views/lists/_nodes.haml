@@ -1,0 +1,27 @@
+.nodes
+  %h3
+    Nodes
+    %small (Vertices)
+  %div(ng-hide='showList.nodes.length')
+    = render partial: 'layouts/empty_list'
+  %table.table.table-bordered.table-hover.table-condensed(ng-show='showList.nodes.length')
+    %thead
+      %th Id
+      %th Info
+      %th Edit
+    %tbody
+      %tr(ng-repeat='node in showList.nodes')
+        %td
+          %span(editable-text="node.id" e-name="id" e-form="nodeform" e-disabled ng-show="!nodeform.$visible") {{node.id}}
+        %td
+          %span(editable-text="node.info" e-name="info" e-form="nodeform" e-required ng-show="!nodeform.$visible") {{node.info}}
+        %td{:style => "white-space: nowrap"}
+          %form.form-buttons.form-inline(editable-form name="nodeform" ng-show="nodeform.$visible" onbeforesave="showList.saveNode($data, $index)" shown="node.id == undefined")
+            %button.btn.btn-success(ng-disabled="nodeform.$waiting" type="submit") Save
+            %button.btn.btn-default(ng-click="nodeform.$cancel()" ng-disabled="nodeform.$waiting" type="button") Cancel
+          .buttons{"ng-show" => "!nodeform.$visible"}
+            %button.btn.btn-primary(ng-click="nodeform.$show()") Edit
+            %button.btn.btn-danger(ng-click="removeNode($index)") Delete
+  %button.btn.btn-primary.btn-sm(type='button' ng-click='showList.addNode()')
+    %i.glyphicon.glyphicon-plus
+    Add Node

@@ -1,0 +1,36 @@
+.arcs
+  %h3
+    Edges
+    %small (Arcs)
+  %div(ng-hide='showList.arcs.length')
+    = render partial: 'layouts/empty_list'
+  %table.table.table-bordered.table-hover.table-condensed(ng-show='showList.arcs.length')
+    %thead
+      %th Id
+      %th Weight
+      %th Heuristic value
+      %th Node Parent Id
+      %th Node Child Id
+      %th Edit
+    %tbody
+      %tr(ng-repeat='arc in showList.arcs')
+        %td
+          %span(editable-text="arc.id" e-name="id" e-form="arcform" e-disabled ng-show="!arcform.$visible") {{arc.id}}
+        %td
+          %span(editable-text="arc.weight" e-name="weight" e-form="arcform" ng-show="!arcform.$visible") {{arc.weight}}
+        %td
+          %span(editable-text="arc.heuristic_value" e-name="heuristic_value" e-form="arcform" ng-show="!arcform.$visible") {{arc.heuristic_value}}
+        %td
+          %span(editable-text="arc.from_id" e-name="from_id" e-form="arcform" e-required ng-show="!arcform.$visible") {{arc.from_id}}
+        %td
+          %span(editable-text="arc.to_id" e-name="to_id" e-form="arcform" e-required ng-show="!arcform.$visible") {{arc.to_id}}
+        %td(style="white-space: nowrap")
+          %form.form-buttons.form-inline(editable-form name="arcform" ng-show="arcform.$visible" onbeforesave="showList.saveArc($data, $index)" shown="arc.id == undefined")
+            %button.btn.btn-success(ng-disabled="arcform.$waiting" type="submit") Save
+            %button.btn.btn-default(ng-click="arcform.$cancel()" ng-disabled="arcform.$waiting" type="button") Cancel
+          .buttons{"ng-show" => "!arcform.$visible"}
+            %button.btn.btn-primary(ng-click="arcform.$show()") Edit
+            %button.btn.btn-danger(ng-click="removeUser($index)") Delete
+  %button.btn.btn-primary.btn-sm(type='button' ng-click='showList.addArc()')
+    %i.glyphicon.glyphicon-plus
+    Add Edge

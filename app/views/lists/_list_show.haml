@@ -1,0 +1,23 @@
+.list.jumbotron
+  %h3 Graph info
+  .row
+    .col-md-6
+
+      %form(editable-form name='listForm' onaftersave='showList.saveList($data)')
+        .form-group
+          %strong Name:
+          %span(editable-text='showList.list.name' e-name='name') {{showList.list.name}}
+          %br
+          %strong Description:
+          %span(editable-text='showList.list.description' e-name='description') {{showList.list.description}} 
+        .buttons
+          %button.btn.btn-primary.btn-sm(type='button' ng-click="listForm.$show()" ng-show='!listForm.$visible' disabled) Edit
+          .span(ng-show="listForm.$visible")
+            %button.btn.btn-success(type='submit' ng-disabled='listForm.$waiting') Save
+            %button.btn.btn-success(type='button' ng-click="listForm.$cancel()" ng-disabled='listForm.$waiting') Cancel
+    .col-md-5
+      .btn-group.pull-left
+        %label.btn.btn-info(ng-model='showList.algorithm' uib-btn-radio="'all_paths'") All paths
+        %label.btn.btn-info(ng-model='showList.algorithm' uib-btn-radio="'dijkstra'") Dijkstra
+        %label.btn.btn-info(ng-model='showList.algorithm' uib-btn-radio="'A*'") A*
+      %a.btn.btn-primary.pull-right(ng-click='showList.calculate') Calculate
