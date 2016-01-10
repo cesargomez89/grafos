@@ -10,6 +10,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bower'
 gem 'haml-rails'
 gem 'rails_12factor'
+gem 'PriorityQueue'
 
 group :development, :test do
   gem 'pry'
