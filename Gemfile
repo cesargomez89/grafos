@@ -11,6 +11,7 @@ gem 'bower'
 gem 'haml-rails'
 gem 'rails_12factor'
 gem 'PriorityQueue'
+gem 'puma'
 
 group :development, :test do
   gem 'pry'
