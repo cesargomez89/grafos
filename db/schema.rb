@@ -22,7 +22,6 @@ ActiveRecord::Schema.define(version: 20151229215657) do
     t.integer  "from_id"
     t.integer  "to_id"
     t.integer  "list_id"
-    t.integer  "next_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
@@ -37,7 +36,6 @@ ActiveRecord::Schema.define(version: 20151229215657) do
   create_table "nodes", force: :cascade do |t|
     t.string   "info"
     t.integer  "list_id"
-    t.integer  "next_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

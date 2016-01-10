@@ -12,8 +12,8 @@
     vm.list  = {name: null, description: null};
     vm.nodes = [];
     vm.arcs  = [];
-    vm.newNode = { info: '', next_id: null };
-    vm.newArc = { weight: 1, heuristic_value: null, node_id: null, next_id: null };
+    vm.newNode = { info: '' };
+    vm.newArc = { weight: 1, heuristic_value: 0, node_id: null };
 
     vm.saveList = saveList;
     vm.getInfo  = getInfo;
