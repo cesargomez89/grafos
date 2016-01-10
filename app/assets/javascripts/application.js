@@ -27,9 +27,11 @@
 //= require ./app/lists/lists.module
 //= require ./app/nodes/nodes.module
 //= require ./app/arcs/arcs.module
+//= require ./app/algorithms/algorithms.module
 //= require_tree ./app/core/
 //= require_tree ./app/lists/
 //= require_tree ./app/arcs/
+//= require_tree ./app/algorithms/
 
 //= require ./app/app.module
 //= require_tree ./app/components/

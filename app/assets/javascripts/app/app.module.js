@@ -3,6 +3,7 @@ angular.module('app', [
   'app.lists',
   'app.nodes',
   'app.arcs',
+  'app.algorithms'
 ], configure);
 
 configure.$inject = ['$httpProvider'];

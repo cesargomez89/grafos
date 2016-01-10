@@ -3,12 +3,16 @@ $icon-font-path: "bootstrap-sass/assets/fonts/bootstrap/";
 @import "bootstrap-sass/assets/stylesheets/bootstrap";
 @import 'angular-toastr/dist/angular-toastr';
 
-body { padding-top: 70px; }
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  /* Set the fixed height of the footer here */
-  height: 60px;
-  background-color: #f5f5f5;
+body {
+padding-top: 70px;
+padding-bottom: 70px;
 }
+
+/*.footer {*/
+/*  position: absolute;*/
+/*  bottom: 0;*/
+/*  width: 100%;*/
+/*  [> Set the fixed height of the footer here <]*/
+/*  height: 60px;*/
+/*  background-color: #f5f5f5;*/
+/*}*/

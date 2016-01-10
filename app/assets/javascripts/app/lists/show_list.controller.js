@@ -5,15 +5,17 @@
   angular.module('app.lists').
     controller('ShowListController', ShowListController);
 
-  ShowListController.$inject = ['nodeService', 'arcService'];
+  ShowListController.$inject = ['nodeService', 'arcService', 'algorithmService'];
 
-  function ShowListController(nodeService, arcService){
+  function ShowListController(nodeService, arcService, algorithmService){
     var vm = this;
     vm.list  = {name: null, description: null};
     vm.nodes = [];
     vm.arcs  = [];
     vm.newNode = { info: '' };
     vm.newArc = { weight: 1, heuristic_value: 0, node_id: null };
+    vm.algorithm = null;
+    vm.result = null;
 
     vm.saveList = saveList;
     vm.getInfo  = getInfo;
@@ -21,6 +23,7 @@
     vm.addArc   = addArc;
     vm.saveNode = saveNode;
     vm.saveArc  = saveArc;
+    vm.calculate= calculate;
 
     function saveList(data){
     }
@@ -59,6 +62,16 @@
           vm.arcs.splice(index, 1, response.data);
         });
       }
+    }
+
+    function calculate(){
+      var params = {
+        list_id: vm.list.id, start_id: vm.start_id, finish_id: vm.finish_id
+      };
+      algorithmService.calculate(vm.algorithm, params)
+      .then(function(response){
+        vm.result = JSON.stringify(response.data);
+      });
     }
 
   }

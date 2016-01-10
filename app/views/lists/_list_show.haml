@@ -16,8 +16,15 @@
             %button.btn.btn-success(type='submit' ng-disabled='listForm.$waiting') Save
             %button.btn.btn-success(type='button' ng-click="listForm.$cancel()" ng-disabled='listForm.$waiting') Cancel
     .col-md-5
-      .btn-group.pull-left
+      .alert.alert-success
+        %i.glyphicon.glyphicon-console
+        %span(ng-show='showList.result.length') Result: {{showList.result}}
+        %span(ng-hide='showList.result.length') Calculate your algorithm!
+      .btn-group
         %label.btn.btn-info(ng-model='showList.algorithm' uib-btn-radio="'all_paths'") All paths
         %label.btn.btn-info(ng-model='showList.algorithm' uib-btn-radio="'dijkstra'") Dijkstra
-        %label.btn.btn-info(ng-model='showList.algorithm' uib-btn-radio="'A*'") A*
-      %a.btn.btn-primary.pull-right(ng-click='showList.calculate') Calculate
+        %label.btn.btn-info(ng-model='showList.algorithm' uib-btn-radio="'a_star'") A*
+      .form-inline.pull-left(style='padding-left: 5px;')
+        %input.form-control(type='text' style='width: 60px;' placeholder='start' ng-model='showList.start_id')
+        %input.form-control(type='text' style='width: 60px;' placeholder='finish' ng-model='showList.finish_id')
+      %a.btn.btn-primary.pull-right(ng-click='showList.calculate()') Calculate

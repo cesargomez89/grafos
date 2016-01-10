@@ -1,4 +1,4 @@
 .show-list(ng-controller='ShowListController as showList' ng-init="showList.getInfo(#{@list.to_json}, #{@list.nodes.to_json}, #{@list.arcs.to_json})")
   = render partial: 'list_show'
-  = render partial: 'arcs'
   = render partial: 'nodes'
+  = render partial: 'arcs'

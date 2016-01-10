@@ -11,7 +11,7 @@ module Algorithms
       @path = { info: [@start.info], real: 0, heuristic: 0 }
       @paths.push(@path)
       walk_paths
-      @path
+      @path[:info]
     end
 
     def walk_paths

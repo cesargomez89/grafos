@@ -30,7 +30,6 @@ module Algorithms
         end
         @previous[node.info] = nil
       end
-
     end
 
     def calculate_path
