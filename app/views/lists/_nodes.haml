@@ -17,11 +17,11 @@
           %span(editable-text="node.info" e-name="info" e-form="nodeform" e-required ng-show="!nodeform.$visible") {{node.info}}
         %td{:style => "white-space: nowrap"}
           %form.form-buttons.form-inline(editable-form name="nodeform" ng-show="nodeform.$visible" onbeforesave="showList.saveNode($data, $index)" shown="node.id == undefined")
-            %button.btn.btn-success(ng-disabled="nodeform.$waiting" type="submit") Save
-            %button.btn.btn-default(ng-click="nodeform.$cancel()" ng-disabled="nodeform.$waiting" type="button") Cancel
+            %button.btn.btn-success.btn-sm(ng-disabled="nodeform.$waiting" type="submit") Save
+            %button.btn.btn-default.btn-sm(ng-click="nodeform.$cancel()" ng-disabled="nodeform.$waiting" type="button") Cancel
           .buttons{"ng-show" => "!nodeform.$visible"}
-            %button.btn.btn-primary(ng-click="nodeform.$show()") Edit
-            %button.btn.btn-danger(ng-click="removeNode($index)") Delete
+            %button.btn.btn-primary.btn-sm(ng-click="nodeform.$show()") Edit
+            %button.btn.btn-danger.btn-sm(ng-click="removeNode($index)") Delete
   %button.btn.btn-primary.btn-sm(type='button' ng-click='showList.addNode()')
     %i.glyphicon.glyphicon-plus
     Add Node

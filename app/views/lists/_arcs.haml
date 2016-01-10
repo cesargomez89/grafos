@@ -26,11 +26,11 @@
           %span(editable-select="arc.to_id" e-name="to_id" e-ng-options="n.id as n.info for n in showList.nodes" e-form="arcform" e-required ng-show="!arcform.$visible") {{showList.nodeInfo(arc.to_id)}}
         %td(style="white-space: nowrap")
           %form.form-buttons.form-inline(editable-form name="arcform" ng-show="arcform.$visible" onbeforesave="showList.saveArc($data, $index)" shown="arc.id == undefined")
-            %button.btn.btn-success(ng-disabled="arcform.$waiting" type="submit") Save
-            %button.btn.btn-default(ng-click="arcform.$cancel()" ng-disabled="arcform.$waiting" type="button") Cancel
+            %button.btn.btn-success.btn-sm(ng-disabled="arcform.$waiting" type="submit") Save
+            %button.btn.btn-default.btn-sm(ng-click="arcform.$cancel()" ng-disabled="arcform.$waiting" type="button") Cancel
           .buttons{"ng-show" => "!arcform.$visible"}
-            %button.btn.btn-primary(ng-click="arcform.$show()") Edit
-            %button.btn.btn-danger(ng-click="removeUser($index)") Delete
+            %button.btn.btn-primary.btn-sm(ng-click="arcform.$show()") Edit
+            %button.btn.btn-danger.btn-sm(ng-click="removeUser($index)") Delete
   %button.btn.btn-primary.btn-sm(type='button' ng-click='showList.addArc()')
     %i.glyphicon.glyphicon-plus
     Add Edge
