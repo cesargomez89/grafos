@@ -21,7 +21,7 @@
             %button.btn.btn-default.btn-sm(ng-click="nodeform.$cancel()" ng-disabled="nodeform.$waiting" type="button") Cancel
           .buttons{"ng-show" => "!nodeform.$visible"}
             %button.btn.btn-primary.btn-sm(ng-click="nodeform.$show()") Edit
-            %button.btn.btn-danger.btn-sm(ng-click="removeNode($index)") Delete
+            %button.btn.btn-danger.btn-sm(ng-click="showList.removeNode(node.id, $index)") Delete
   %button.btn.btn-primary.btn-sm(type='button' ng-click='showList.addNode()')
     %i.glyphicon.glyphicon-plus
     Add Node

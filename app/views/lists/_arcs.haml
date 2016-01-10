@@ -30,7 +30,7 @@
             %button.btn.btn-default.btn-sm(ng-click="arcform.$cancel()" ng-disabled="arcform.$waiting" type="button") Cancel
           .buttons{"ng-show" => "!arcform.$visible"}
             %button.btn.btn-primary.btn-sm(ng-click="arcform.$show()") Edit
-            %button.btn.btn-danger.btn-sm(ng-click="removeUser($index)") Delete
+            %button.btn.btn-danger.btn-sm(ng-click="showList.removeArc(arc.id, $index)") Delete
   %button.btn.btn-primary.btn-sm(type='button' ng-click='showList.addArc()')
     %i.glyphicon.glyphicon-plus
     Add Edge

@@ -25,6 +25,8 @@
     vm.saveArc  = saveArc;
     vm.calculate= calculate;
     vm.nodeInfo = nodeInfo;
+    vm.removeNode = removeNode;
+    vm.removeArc = removeArc;
 
     function saveList(data){
     }
@@ -78,6 +80,18 @@
     function nodeInfo(id){
       var node = _.findWhere(vm.nodes, {id: id});
       return node ? node.info : null;
+    }
+
+    function removeNode(id, index){
+      nodeService.remove(id).then(function(response){
+        vm.nodes.splice(index, 1);
+      });
+    }
+
+    function removeArc(id, index){
+      arcService.remove(id).then(function(response){
+        vm.arcs.splice(index, 1);
+      });
     }
 
   }
