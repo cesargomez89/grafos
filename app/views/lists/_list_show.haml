@@ -13,18 +13,28 @@
         .buttons
           %button.btn.btn-primary.btn-sm(type='button' ng-click="listForm.$show()" ng-show='!listForm.$visible' disabled) Edit
           .span(ng-show="listForm.$visible")
-            %button.btn.btn-success(type='submit' ng-disabled='listForm.$waiting') Save
-            %button.btn.btn-success(type='button' ng-click="listForm.$cancel()" ng-disabled='listForm.$waiting') Cancel
+            %button.btn.btn-success.btn-sm(type='submit' ng-disabled='listForm.$waiting') Save
+            %button.btn.btn-success.btn-sm(type='button' ng-click="listForm.$cancel()" ng-disabled='listForm.$waiting') Cancel
     .col-md-5
-      .alert.alert-success
-        %i.glyphicon.glyphicon-console
-        %span(ng-show='showList.result.length') Result: {{showList.result}}
-        %span(ng-hide='showList.result.length') Calculate your algorithm!
-      .btn-group
-        %label.btn.btn-info(ng-model='showList.algorithm' uib-btn-radio="'all_paths'") All paths
-        %label.btn.btn-info(ng-model='showList.algorithm' uib-btn-radio="'dijkstra'") Dijkstra
-        %label.btn.btn-info(ng-model='showList.algorithm' uib-btn-radio="'a_star'") A*
-      .form-inline.pull-left(style='padding-left: 5px;')
-        %input.form-control(type='text' style='width: 60px;' placeholder='start' ng-model='showList.start_id')
-        %input.form-control(type='text' style='width: 60px;' placeholder='finish' ng-model='showList.finish_id')
-      %a.btn.btn-primary.pull-right(ng-click='showList.calculate()') Calculate
+      .row
+        .row
+          .col-xs-5
+            .btn-group
+              %label.btn.btn-info.btn-sm(ng-model='showList.algorithm' uib-btn-radio="'all_paths'") All paths
+              %label.btn.btn-info.btn-sm(ng-model='showList.algorithm' uib-btn-radio="'dijkstra'") Dijkstra
+              %label.btn.btn-info.btn-sm(ng-model='showList.algorithm' uib-btn-radio="'a_star'") A*
+          .col-xs-4
+            .form-inline.pull-right(style='padding-left: 5px;')
+              %select.form-control(style='width: 50px; height: 30px;' placeholder='start' ng-model='showList.start' |
+              ng-options="n.info for n in showList.nodes track by n.id")
+              %select.form-control(style='width: 50px; height: 30px;' placeholder='finish' ng-model='showList.finish' |
+              ng-options="n.info for n in showList.nodes track by n.id")
+          .col-xs-3
+            %a.btn.btn-primary.btn-sm.pull-right(ng-click='showList.calculate()') Calculate
+        .row
+          %br
+          .col-xs-12
+            .alert.alert-success
+              %i.glyphicon.glyphicon-console
+              %span(ng-show='showList.result.length') Result: {{showList.result}}
+              %span(ng-hide='showList.result.length') Calculate your algorithm!

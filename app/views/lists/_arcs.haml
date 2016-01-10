@@ -21,9 +21,9 @@
         %td
           %span(editable-text="arc.heuristic_value" e-name="heuristic_value" e-form="arcform" ng-show="!arcform.$visible") {{arc.heuristic_value}}
         %td
-          %span(editable-text="arc.from_id" e-name="from_id" e-form="arcform" e-required ng-show="!arcform.$visible") {{arc.from_id}}
+          %span(editable-select="arc.from_id" e-ng-options="n.id as n.info for n in showList.nodes" e-name="from_id" e-form="arcform" e-required ng-show="!arcform.$visible") {{showList.nodeInfo(arc.from_id)}}
         %td
-          %span(editable-text="arc.to_id" e-name="to_id" e-form="arcform" e-required ng-show="!arcform.$visible") {{arc.to_id}}
+          %span(editable-select="arc.to_id" e-name="to_id" e-ng-options="n.id as n.info for n in showList.nodes" e-form="arcform" e-required ng-show="!arcform.$visible") {{showList.nodeInfo(arc.to_id)}}
         %td(style="white-space: nowrap")
           %form.form-buttons.form-inline(editable-form name="arcform" ng-show="arcform.$visible" onbeforesave="showList.saveArc($data, $index)" shown="arc.id == undefined")
             %button.btn.btn-success(ng-disabled="arcform.$waiting" type="submit") Save

@@ -24,6 +24,7 @@
     vm.saveNode = saveNode;
     vm.saveArc  = saveArc;
     vm.calculate= calculate;
+    vm.nodeInfo = nodeInfo;
 
     function saveList(data){
     }
@@ -66,12 +67,17 @@
 
     function calculate(){
       var params = {
-        list_id: vm.list.id, start_id: vm.start_id, finish_id: vm.finish_id
+        list_id: vm.list.id, start_id: vm.start.id, finish_id: vm.finish.id
       };
       algorithmService.calculate(vm.algorithm, params)
       .then(function(response){
         vm.result = JSON.stringify(response.data);
       });
+    }
+
+    function nodeInfo(id){
+      var node = _.findWhere(vm.nodes, {id: id});
+      return node ? node.info : null;
     }
 
   }
